@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.wyu.Student.Dao.Studao">
+	<select id="findstuById" parameterType="int" resultType="cn.wyu.Student.model.student">
+		select* from student where id=#{id}
+	</select>
+	<select id="findAllStus" resultType="cn.wyu.Student.model.student">
+		select* from student
+	</select>
+	<insert id="insertUser" parameterType="cn.wyu.Student.model.student" >
+		insert into student(id,name,age) values(#{id},#{name},#{age})
+	</insert>
+	<delete id="deleteStuById" parameterType="int">
+        delete from student where id=#{id}
+    </delete>
+    <update id="updateStuName" parameterType="cn.wyu.Student.model.student">
+        update student set name=#{name} where id=#{id}
+    </update>
+</mapper>
