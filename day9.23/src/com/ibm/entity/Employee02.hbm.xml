@@ -1,0 +1,45 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.ibm.entity.Employee02" table="EMPLOYEE02">
+		<meta attribute="class-description">
+			This class contains the employee detail.
+		</meta>
+		<id name="id" type="int">
+			<column name="id" />
+			<generator class="native" />
+		</id>
+
+		<property name="firstName" type="java.lang.String">
+			<column name="first_name" />
+		</property>
+		<property name="lastName" type="java.lang.String">
+			<column name="last_name" />
+		</property>
+		<property name="salary" type="int">
+			<column name="salary" />
+		</property>
+
+		<many-to-one name="address" column="address"
+			class="com.ibm.entity.Address" not-null="true" />
+
+	</class>
+
+	<class name="com.ibm.entity.Address" table="ADDRESS">
+
+		<meta attribute="class-description">
+			This class contains the address detail.
+		</meta>
+
+		<id name="id" type="int" column="id">
+			<generator class="native" />
+		</id>
+
+		<property name="street" column="street_name" type="string" />
+		<property name="city" column="city_name" type="string" />
+		<property name="state" column="state_name" type="string" />
+		<property name="zipcode" column="zipcode" type="string" />
+
+	</class>
+</hibernate-mapping>
